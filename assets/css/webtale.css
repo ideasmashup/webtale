@@ -140,7 +140,36 @@ body{
  margin-top:-90px;
  margin-left:-50px;
 }
-
+/*
+	Subscribe to newsletter
+*/
+#site-subscribe .actor {
+ position: absolute;
+ width: 280px;
+ height: 200px;
+ top: 50%;
+ left: 50%;
+ margin-top:-200px;
+ margin-left:-140px;
+}
+#site-subscribe .msg {
+ position: absolute;
+ width: 300px;
+ height: 140px;
+ top: 50%;
+ left: 50%;
+ margin-top:5px;
+ margin-left:-150px;
+}
+#site-subscribe .button {
+ position: absolute;
+ width: 300px;
+ height: 40px;
+ top: 50%;
+ left: 50%;
+ margin-top:150px;
+ margin-left:-150px;
+}
 /*
 	Interactive world
 */
