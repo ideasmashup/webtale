@@ -109,15 +109,21 @@ body{
  height: 100%;
  overflow: hidden;
 }
-#universe {
+#viewport > #universe {
  position: absolute;
+ overflow: visible;
  left: 0;
  top: 0;
- width: 999999em;
- height: 999999em;
 }
-.system {
-
+#timeline {
+ position: relative;
+ width: 1em;
+ background: red;
+}
+#universe > .system {
+ position: absolute;
+ width: 640px;
+ width: 480px;
 }
 #william {
  position: fixed;
@@ -132,6 +138,7 @@ body{
 /*
 	Interactive world
 */
+/*
 #world {
  position:absolute;
  width:999999em;
@@ -159,3 +166,4 @@ body{
  float:left;
  padding:0.3em 1em;
 }
+*/
