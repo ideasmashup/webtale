@@ -2,11 +2,10 @@
 	Page elements
  */
 
-//var Floors = $('#world .floors').eq(0);
 
 /*
- States and animating variables
- */
+	States and animating variables
+*/
 
 var Universe = {
 	systems : null,
@@ -19,10 +18,12 @@ var Universe = {
 
 	$self : null,
 	$systems : null,
+	$currentsystem : null,
 
 	init : function() {
 		this.$self = $('#universe');
 		this.$systems = $('#universe > .systems')
+		this.$currentsystem = $('#loading')
 
 		World.init();
 		this.reset();
@@ -48,28 +49,40 @@ var Universe = {
 		// resize timeline (scrollbar)
 		World.resizeTimeline();
 
-		// move viewport immediately after resize
-		this.moveViewportTo(this.x, this.y, 0);
+		// move viewport immediately after resize if
+		if (preload == 100) {
+			this.moveViewport(0);
+		}
 	},
 
-	moveViewportTo : function(x, y, duration, callback) {
+	_moveViewportTo: function(x, y, duration, callback) {
 		this.$self.animate({
 			'left' : x + 'px',
 			'top' : y + 'px',
-		}, duration, 'swing', function() {
+		}, duration, 'easeInOutQuint', function() {
 			// done moving to target system
 			Universe.x = x;
 			Universe.y = y;
 
-			if (callback !== undefined) {
+			if (callback) {
 				callback();
 			}
 		});
 	},
 
-	moveViewport : function(x, y, callback) {
-		var $target = this.$systems.filter('[data-ux=' + x + '][data-uy=]' + y).eq(0);
-		this.moveViewportTo(-$target.position().left, -$target.position().top, 1000, callback);
+	moveViewport : function($system, duration, callback) {
+		if ($system == undefined || typeof $system == 'function') {
+			$system = Universe.$currentsystem;
+		}
+
+		this._moveViewportTo(-$system.position().left, -$system.position().top, duration, function() {
+			// done moving to target system
+			Universe.$currentsystem = $system;
+
+			if (callback) {
+				callback();
+			}
+		});
 	},
 
 	lockScroll : function() {
@@ -181,14 +194,42 @@ function resizeSystem($system, size) {
 }
 
 /*
- * Preloading
- */
+	Animating
+*/
+
+function sfx($element, classes) {
+	if ($element.hasClass('idle')) $element.removeClass('idle');
+	$element.addClass('animated '+ classes);
+}
+
+/*
+	Preloading
+*/
+
+var preload = 0;
+var preloadSI = -1;
 
 function preloadEverything() {
 	preloadElements();
 	preloadSubscribe();
 	preloadWorld();
 	preloadPosts();
+
+	preloadSI = setInterval(function(){
+		preload += 4;
+		if (preload >= 100) {
+			preload = 100;
+			clearInterval(preloadSI);
+
+			Universe.moveViewport($('#site-subscribe'), 1000, function(){
+				// done loading
+
+				// animate scene
+				sfx($('#site-subscribe > *'), 'bounceInLeft');
+			});
+		}
+		$('#percent').text(preload)
+	}, 100);
 }
 
 function preloadElements() {
@@ -211,8 +252,8 @@ function preloadPosts() {
 }
 
 /*
- * Events bindings and initializing
- */
+	Document initializing
+*/
 
 $(document).ready(function() {
 	// cache assets and save page elements refs
@@ -241,7 +282,7 @@ $(document).ready(function() {
 		// resize world, universe and scroll length
 
 		resizeSystems();
-		resizeTimeline();
+		World.resizeTimeline();
 		animateOnScroll();
 
 	}).on('orientationchange', function(event) {
@@ -252,6 +293,19 @@ $(document).ready(function() {
 			$(window).trigger('resize');
 		}, 500);
 
+	});
+
+	$('#btViewSite').click(function(){
+		Universe.moveViewport($('#site-wait'), 1000, function(){
+			// display hints how to use the world...
+
+			// auto switch to world after small 4s delay
+			setTimeout(function(){
+				Universe.moveViewport($('#site-world'), 500, function(){
+					//
+				});
+			},4000);
+		})
 	});
 });
 
