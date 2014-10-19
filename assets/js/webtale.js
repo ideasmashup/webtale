@@ -261,7 +261,7 @@ $(document).ready(function() {
 
 	if (deviceName != "computer") {
 		alert('mobile mode')
-		initTouchEvents();
+		//initTouchEvents();
 	}
 
 	// initialize everything on the page
