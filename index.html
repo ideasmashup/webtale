@@ -16,29 +16,135 @@
 
 <body>
 
-<div id="william"></div>
-
+<!-- interactive site container -->
 <div id="viewport">
 <div id="universe">
-	<div id="landing-wait" class="system">
+	<div id="loading" class="system" data-ux="" data-uy="">
 		<!-- landing page loading screen -->
+		<div class="quartz"></div>
+		<div class="spinner">
+			<div class="dot1"></div>
+			<div class="dot2"></div>
+		</div>
+		<div class="brand"></div>
+		<div class="msg"><span id="percent">0</span>%</div>
 	</div>
-	<div id="subscribe" class="system">
+
+
+	<div id="subscribe" class="system" data-ux="" data-uy="">
 		<!-- subscribe and login form -->
 	</div>
-	<div id="site-wait" class="system">
+
+
+	<div id="site-wait" class="system" data-ux="" data-uy="">
 		<!-- site access loading screen -->
 	</div>
-	<div id="site-world" class="system">
+
+
+	<div id="site-world" class="system" data-ux="" data-uy="">
 		<!-- site access explorable world -->
+		<div class="layer stage">
+			<div class="level" data-lvltype="horizontal">
+				<div class="sector wide post">
+					<!-- an older blog post -->
+				</div>
+				<div class="sector small separator">
+					<!-- a decorative random separator -->
+				</div>
+				<div class="sector normal post">
+					<!-- an older blog post -->
+				</div>
+				<div class="sector wide landing">
+					<!-- the "landing" sector -->
+				</div>
+				<div class="sector tiny separator">
+					<!-- a decorative random separator -->
+				</div>
+				<div class="sector normal post">
+					<!-- a newer blog post -->
+				</div>
+				<div class="sector wide page">
+					<!-- form, social sharing or loader -->
+				</div>
+			</div>
+		</div>
+
+		<div class="layer floor">
+			<div class="level" data-lvltype="horizontal">
+				<div class="sector wide">
+				</div>
+				<div class="sector small">
+				</div>
+				<div class="sector normal">
+				</div>
+				<div class="sector wide">
+				</div>
+				<div class="sector tiny">
+				</div>
+				<div class="sector normal">
+				</div>
+				<div class="sector wide">
+				</div>
+			</div>
+		</div>
+		
+		<div class="layer fore">
+			<div class="level" data-lvltype="horizontal">
+				<div class="sector wide">
+				</div>
+				<div class="sector small">
+				</div>
+				<div class="sector normal">
+				</div>
+				<div class="sector wide">
+				</div>
+				<div class="sector tiny">
+				</div>
+				<div class="sector normal">
+				</div>
+				<div class="sector wide">
+				</div>
+			</div>
+		</div>
+
+		<div class="layer back">
+			<div class="level" data-lvltype="horizontal">
+				<div class="sector wide">
+				</div>
+				<div class="sector small">
+				</div>
+				<div class="sector normal">
+				</div>
+				<div class="sector wide">
+				</div>
+				<div class="sector tiny">
+				</div>
+				<div class="sector normal">
+				</div>
+				<div class="sector wide">
+				</div>
+			</div>
+		</div>
+
+		<div class="layer sky">
+			<!-- random sky -->
+		</div>
 	</div>
-	<div id="site-post" class="system">
+
+
+	<div id="site-post" class="system" data-ux="" data-uy="">
 		<!-- site post full view -->
 	</div>
-	<div id="site-end" class="system">
+
+
+	<div id="site-end" class="system" data-ux="" data-uy="">
 		<!-- screen after last post -->
 	</div>
 </div>
+</div>
+
+<div id="timeline">
+	<!-- page scrolling spacer -->
 </div>
 
 
@@ -113,7 +219,8 @@
 </div>
 
 <script src="assets/js/jquery-2.1.1.min.js"></script>
-
+<script src="assets/js/responsive.js"></script>
+<script src="assets/js/webtale.js"></script>
 
 </body>
 </html>
