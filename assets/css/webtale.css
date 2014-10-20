@@ -9,7 +9,7 @@ html{
 body{
  padding:0;
  margin:0;
- background:#2ba3d4;
+ background:#fff;
 }
 /*
 	Debug
@@ -177,10 +177,10 @@ body{
 /*
 	Loading world
 */
-#site-wait .title {
+#site-wait .actor {
  position: absolute;
- width: 300px;
- height: 40px;
+ width: 120px;
+ height: 200px;
  top: 50%;
  left: 50%;
  margin-top:-120px;
