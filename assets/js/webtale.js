@@ -85,8 +85,14 @@ var Universe = {
 		});
 	},
 
-	lockScroll : function() {
-		this.canScroll = false;
+	lockScroll: function() {
+		Universe.canScroll = false;
+		World.resizeTimeline();
+	},
+
+	unlockScroll: function() {
+		Universe.canScroll = true;
+		World.resizeTimeline();
 	}
 };
 
