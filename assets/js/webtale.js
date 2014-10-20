@@ -14,6 +14,9 @@ var Universe = {
 	touchxstart: 0,
 	touchxcurrent: 0,
 	touchxend: 0,
+	touchystart: 0,
+	touchycurrent: 0,
+	touchyend: 0,
 	canScroll : false,
 
 	$self : null,
@@ -36,6 +39,9 @@ var Universe = {
 		this.touchxstart = 0;
 		this.touchxcurrent = 0;
 		this.touchxend = 0;
+		this.touchystart = 0;
+		this.touchycurrent = 0;
+		this.touchyend = 0;
 
 		this.resize();
 
@@ -97,6 +103,14 @@ var Universe = {
 };
 
 var World = {
+	timelinePos: 0,
+	timeLineLastPos: 0,
+	timelineLastMove: 0,
+
+	groundPos: 0,
+	groundLastPos: 0,
+	groundLastMove: 0,
+
 	$self : null,
 	$layers : null,
 	$levels : null,
