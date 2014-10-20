@@ -100,6 +100,8 @@ var World = {
 	$self : null,
 	$layers : null,
 	$levels : null,
+	$sectors : null,
+	currentsector : 0,
 
 	init : function() {
 		this.$self = $('#world');
@@ -107,6 +109,8 @@ var World = {
 		this.$levels = $('#world .layer.stage .level');
 
 		this.resizeTimeline();
+		this.$sectors = $('#site-world .stage .sector');
+		this.currentsector = 0;
 	},
 
 	resizeTimeline : function() {
@@ -263,6 +267,22 @@ function preloadPosts() {
 }
 
 /*
+
+function enterSector($sector, actorPos) {
+	// highligth the sector
+	$sector.css({'background-color' : 'red'});
+
+	// animate internal elements
+	//sfx();
+
+	//
+}
+
+function leaveSector($sector, actorPos) {
+	// remove highlight
+	$sector.css({'background-color' : 'transparent'});
+}
+
 	Document initializing
 */
 
