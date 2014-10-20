@@ -184,7 +184,7 @@ body{
  top: 50%;
  left: 50%;
  margin-top:-120px;
- margin-left:-150px;
+ margin-left:-100px;
 }
 #site-wait .hints {
  position: absolute;
@@ -193,7 +193,7 @@ body{
  top: 50%;
  left: 50%;
  margin-top:-50px;
- margin-left:-75px;
+ margin-left:30px;
 }
 #site-wait .illust1 {
  position: absolute;
@@ -202,7 +202,7 @@ body{
  top: 50%;
  left: 50%;
  margin-top:-40px;
- margin-left:-200px;
+ margin-left:-230px;
 }
 
 #site-wait .illust2 {
