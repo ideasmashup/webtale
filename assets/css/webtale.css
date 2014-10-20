@@ -217,32 +217,156 @@ body{
 /*
 	Interactive world
 */
+#site-world {
+ overflow: hidden; /* world  */
+}
 /*
-#world {
- position:absolute;
- width:999999em;
- height:999999em;
-}
-#world .screen{
- position:absolute
-}
-#actors{
- position:fixed;
- left:0;
- top:100%;
- margin-top:-100px;
- height:100px;
-}
-#articles{
- height:99999em;
-}
-.layer{
- width:9999em;
- position:absolute;
-}
-.layer .sector{
- width:480px;
- float:left;
- padding:0.3em 1em;
-}
+	World layer: stage
 */
+#site-world .layer{
+ overflow: visible;
+ position: absolute;
+ height: 100%;
+ _width: 999em;
+ z-index: 100;
+}
+#site-world .level{
+ height: 400px;
+}
+#site-world .sector{
+ position: relative;
+ display: block;
+ float:left;
+ height: 100%;
+ padding:0;
+ margin:0;
+}
+#site-world .level .sector.tiny {
+ width: 80px;
+}
+#site-world .level .sector.small {
+ width: 200px;
+}
+#site-world .level .sector.normal {
+ width: 300px;
+}
+#site-world .level .sector.wide {
+ width: 400px;
+}
+#site-world .level .sector.large {
+ width: 600px;
+}
+#site-world .layer.floor {
+ top:0;
+ z-index:101;
+ overflow: visible;
+}
+#site-world .layer.floor .level,
+#site-world .layer.floor .sector {
+ position: relative;
+ float: left;
+}
+#site-world .level .sector.lower {
+ height: 99%;
+}
+#site-world .level .sector.low {
+ height: 90%;
+}
+#site-world .level .sector.med {
+ height: 80%;
+}
+#site-world .level .sector.high {
+ height: 70%;
+}
+#site-world .level .sector.highest {
+ height: 60%;
+}
+#site-world .layer .sector .ground {
+ position: absolute;
+ clear: both;
+ top: 100%;
+ width: 100%;
+ height: 999em;
+ border: 0;
+ padding: 0;
+ margin: 0;
+ border-top: 10px solid #aaa;
+ background: #888;
+}
+/*
+	World layer: stage
+*/
+#site-world .layer.stage {
+ top:0;
+ z-index:200;
+ overflow: visible;
+ /*
+-webkit-box-shadow:inset 0 100px 100px 100px #D9D9D9;
+ box-shadow:inset 0 100px 100px 100px #D9D9D9;
+ */
+}
+#site-world .layer.stage .landing .button.up {
+ position: absolute;
+ width: 30px;
+ height: 30px;
+ padding: 5px;
+ left: 30%;
+ top: 10%;
+}
+#site-world .layer.stage .landing .panel {
+ position: absolute;
+ width: 40px;
+ height: 20px;
+ background: #222;
+ color: #fff;
+ opacity: 0.5;
+ padding: 2px 7px;
+}
+#site-world .layer.stage .landing .panel.old {
+ top: 70%;
+ left: 10%;
+}
+#site-world .layer.stage .landing .panel.new {
+ top: 70%;
+ left: 80%;
+ margin-left: -40px;
+}
+/*
+	World layer: sky
+*/
+#site-world .layer.sky {
+ _background: url(../images/sky.png) repeat-y;
+}
+/*
+	World layer: actors
+*/
+#site-world .actor {
+ position: absolute;
+ left: 50%;
+ top: 50%;
+ height: 100px;
+ width: 60px;
+ z-index: 4000;
+ background: #1bb8ff;
+}
+/*
+	Blog post
+*/
+#site-post {
+ overflow: auto;
+ background: #fff;
+}
+#site-post .button {
+ position: absolute;
+ width: 130px;
+ height: 30px;
+ top: 10px;
+ left: 10px; 
+ z-index: 999;
+}
+#site-post #blog-container {
+ position: absolute;
+ width: 960px;
+ min-height: 800px;
+ margin: 0 auto;
+}
