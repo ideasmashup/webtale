@@ -198,9 +198,14 @@ function resizeSystem($system, size) {
 */
 
 function sfx($element, classes) {
-	if ($element.hasClass('idle')) $element.removeClass('idle');
+	if ($element.hasClass('idle')) $element.removeClass('idle').addClass('nidle');
 	$element.addClass('animated '+ classes);
 }
+
+function unsfx($element) {
+	if ($element.hasClass('nidle')) $element.removeClass('nidle').removeClass('animated').addClass('idle');
+}
+
 
 /*
 	Preloading
