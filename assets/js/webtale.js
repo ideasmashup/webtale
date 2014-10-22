@@ -366,6 +366,38 @@ function preloadPosts() {
 }
 
 /*
+function bindMobileEvents() {
+	document.addEventListener("touchstart", function(e) {
+		// only prevent scrolling in world system
+		Universe.touchxstart = e.targetTouches[0].pageX;
+		Universe.touchystart = e.targetTouches[0].pageY;
+//		World.timelinePosTouch = World.timelinePos;
+	}, false);
+	document.addEventListener("touchmove", function(e) {
+		Universe.touchxcurrent = e.targetTouches[0].pageX;
+
+		if (Universe.canScroll) {
+			// only prevent vertical scrolling in world system
+			Universe.touchxcurrent = e.targetTouches[0].pageX;
+			Universe.touchycurrent = e.targetTouches[0].pageY;
+			if (Math.abs(Universe.touchycurrent - Universe.touchystart) >= 5) {
+				e.preventDefault();
+				return;
+			}
+
+			animateOnScroll();
+		}
+
+	}, false);
+	document.addEventListener("touchend", function(e) {
+		if (Universe.canScroll) {
+			// only prevent clicks in world system
+			//e.preventDefault();
+			Universe.touchxend = e.changedTouches[0].pageX;
+			Universe.touchyend = e.changedTouches[0].pageY;}
+
+	}, false);
+}
 
 function enterSector($sector, actorPos) {
 	// highligth the sector
@@ -390,8 +422,8 @@ $(document).ready(function() {
 	preloadEverything()
 
 	if (deviceName != "computer") {
-		alert('mobile mode')
-		//initTouchEvents();
+		//alert('mobile mode')
+		bindMobileEvents();
 	}
 
 	// initialize everything on the page
@@ -445,26 +477,8 @@ $(document).ready(function() {
 	});
 });
 
-function initTouchEvents() {
-	document.addEventListener("touchstart", function(e) {
-		Universe.touchxstart = e.targetTouches[0].pageX;
 
-	}, false);
-	document.addEventListener("touchmove", function(e) {
-		e.preventDefault();
-		Universe.touchxcurrent = e.targetTouches[0].pageX;
 
-		if (Universe.canScroll) {
-			animateOnScroll();
-		}
-
-	}, false);
-	document.addEventListener("touchend", function(e) {
-		e.preventDefault();
-		Universe.touchxend = e.changedTouches[0].pageX;
-
-	}, false);
-}
 
 function animateOnScroll() {
 	//
