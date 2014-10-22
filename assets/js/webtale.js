@@ -120,8 +120,6 @@ var World = {
 	currentsector : 0,
 
 	init : function() {
-
-		this.resizeTimeline();
 		this.timelinePos = 0;
 		this.timelineLastPos = 0;
 		this.timelineLastMove = 0;
@@ -133,25 +131,80 @@ var World = {
 		this.$sectors = $('#site-world .stage .sector');
 		this.$currentlevel = $('#site-world .stage .level').eq(0);
 		this.currentsector = 0;
+
+		this.initLayers();
+	},
+
+	initLayers: function() {
+		this.$layers.each(function(index) {
+			var $layer = $(this);
+			var $level = $layer.find('.level'); // only one level for now, more to be added later
+
+			// set layers speed for parallax, adjust world size
+			var lspeed = ($layer.outerWidth() - World.$self.outerWidth()) / (World.$layers.last().outerWidth() - World.$self.outerWidth())
+			$layer.data('lspeed', lspeed);
+
+			// adjust width to fit all sectors
+			if ($level.hasClass('horizontal')) {
+				var length = 0;
+				var $sectors = $level.find('.sector');
+
+				$sectors.each(function(pos) {
+					var $sector = $(this);
+					length += $sector.outerWidth();
+				});
+
+				$level.width(length + 'px');
+			}
+			else if ($level.hasClass('vertical')) {
+				var length = 0;
+				var $sectors = $level.find('.sector');
+
+				$sectors.each(function(pos) {
+					var $sector = $(this);
+					length += $sector.outerHeight();
+				});
+
+				$level.height(length + 'px');
+			}
+
+			// all levels must be at least as high as viewport
+			var vsize = getViewportSize();
+			$level.css({
+				'min-height' : vsize.height + 'px',
+				'height' : vsize.height + 'px'
+			});
+		});
 	},
 
 	resizeTimeline : function() {
-		var totalLength = 0;
+		var length = 0;
 
-		World.$levels.each(function(index) {
-			var $level = $(this);
-			if ($level.data('lvltype') == 'horizontal') {
-				totalLength += $level.width();
-			}
-			else if ($level.data('lvltype') == 'vertical') {
-				totalLength += $level.height();
-			}
-			else {
-				// implement more chapters types here...
-			}
-		});
+		if (Universe.canScroll) {
+			World.$sectors.each(function(index) {
+				var $level = $(this);
 
-		$('#timeline').css('height', totalLength);
+				if ($level.hasClass('horizontal')) {
+					length += $level.width();
+				}
+				else if ($level.hasClass('vertical')) {
+					length += $level.height();
+				}
+				else {
+					// implement more chapters types here...
+				}
+			});
+
+			// FIXME dirty hack to make debug work
+			length = 8888;
+		}
+		else {
+			// reduce to zero to prevent scrolling
+		}
+
+		//alert('timeline size = '+ length)
+
+		$('#timeline').css('height', length);
 	},
 
 };
