@@ -113,17 +113,25 @@ var World = {
 
 	$self : null,
 	$layers : null,
-	$levels : null,
+	$stage : null,
+	$actor : null,
 	$sectors : null,
+	$currentlevel : null,
 	currentsector : 0,
 
 	init : function() {
-		this.$self = $('#world');
-		this.$layers = $('#world .layer');
-		this.$levels = $('#world .layer.stage .level');
 
 		this.resizeTimeline();
+		this.timelinePos = 0;
+		this.timelineLastPos = 0;
+		this.timelineLastMove = 0;
+
+		this.$self = $('#site-world');
+		this.$layers = $('#site-world .layer');
+		this.$actor = $('#site-world .actor');
+		this.$stage = $('#site-world .stage');
 		this.$sectors = $('#site-world .stage .sector');
+		this.$currentlevel = $('#site-world .stage .level').eq(0);
 		this.currentsector = 0;
 	},
 
