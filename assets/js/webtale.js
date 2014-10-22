@@ -414,6 +414,71 @@ function leaveSector($sector, actorPos) {
 	$sector.css({'background-color' : 'transparent'});
 }
 
+function paralaxScroll() {
+	if (World.$currentlevel.hasClass('horizontal')) {
+		// move layers horizontaly with parallax effect
+		World.$layers.each(function(index, element, list) {
+			var $layer = $(element);
+			var lpos = (1 * $layer.data('lspeed') * World.getTimelinePos());
+
+			//console.log('lspeed='+ $layer.data('lspeed') +', tpos='+ World.getTimelinePos() +', lpos='+ lpos)
+			$layer.css({
+				'left' : lpos + 'px'
+			});
+		});
+
+		// check current sector
+		var actorPos = World.$actor.offset().left;
+			//actorPos += World.$stage.position().left;
+
+		var $sector = World.$sectors.eq(World.currentsector);
+		console.log('cursector.left='+ $sector.offset().left +', .width='+ $sector.outerWidth() +', actor.left='+ actorPos)
+		if ($sector.offset().left <= actorPos && $sector.offset().left + $sector.outerWidth() >= actorPos) {
+			// current sector is the right one
+			enterSector($sector, actorPos);
+		}
+		else {
+			// current sector isn't the current one must find it
+			leaveSector($sector, actorPos);
+			var $s = null, $match = null;
+
+			if (actorPos >= $sector.offset().left + $sector.outerWidth()) {
+				// look after
+				for (var i=World.currentsector; i++; i<World.$sectors.size()) {
+					$s = World.$sectors.eq(i);
+					if ($s.offset().left <= actorPos && $s.offset().left + $s.outerWidth() >= actorPos) {
+						World.currentsector = i;
+						break;
+					}
+				}
+			}
+			else {
+				// look before
+				for (var i=World.currentsector; i--; i>=0) {
+					$s = World.$sectors.eq(i);
+					if ($s.offset().left <= actorPos && $s.offset().left + $s.outerWidth() >= actorPos) {
+						World.currentsector = i;
+						$match = $s;
+						break;
+					}
+				}
+			}
+
+			if ($match !== null) {
+				enterSector($match, actorPos);
+			}
+		}
+
+	}
+}
+
+function animateOnScroll() {
+	//
+	paralaxScroll();
+}
+
+
+/*
 	Document initializing
 */
 
@@ -471,15 +536,13 @@ $(document).ready(function() {
 					//
 					sfx($('#site-world > .actor'), 'fadeInDownBig');
 
+					// activate scroll timeline
+					World.initLayers();
+					Universe.unlockScroll();
 				});
-			},4000);
+			}, 4000);
 		})
 	});
-});
 
 
 
-
-function animateOnScroll() {
-	//
-}
