@@ -288,6 +288,7 @@ function resizeSystems() {
 
 function resetSystem($system) {
 	// reposition every children to original position,
+	unsfx($system.find('.nidle')); // hide animated elements
 }
 
 function resizeSystem($system, size) {
@@ -338,7 +339,7 @@ function preloadEverything() {
 				// done loading
 
 				// animate scene
-				sfx($('#site-subscribe > *'), 'bounceInLeft');
+				sfx($('#site-subscribe > *'), 'bounceInRight');
 			});
 		}
 		$('#percent').text(preload)
@@ -428,10 +429,16 @@ $(document).ready(function() {
 		Universe.moveViewport($('#site-wait'), 1000, function(){
 			// display hints how to use the world...
 
+			// animate scene
+			sfx($('#site-wait > *').filter(':not(.actor)'), 'bounceInUp');
+			sfx($('#site-wait > .actor'), 'fadeInDownBig');
+
 			// auto switch to world after small 4s delay
 			setTimeout(function(){
 				Universe.moveViewport($('#site-world'), 500, function(){
 					//
+					sfx($('#site-world > .actor'), 'fadeInDownBig');
+
 				});
 			},4000);
 		})
