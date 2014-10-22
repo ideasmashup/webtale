@@ -207,6 +207,29 @@ var World = {
 		$('#timeline').css('height', length);
 	},
 
+	getTimelinePos: function() {
+		World.timelineLastMove = Math.abs(World.timelinePos - World.timelineLastPos);
+		World.timelineLastPos = World.timelinePos;
+
+		if (deviceName == "computer") {
+			// desktop
+			World.timelinePos = $(window).scrollTop();
+		}
+		else {
+			// mobile
+			World.timelinePos = World.timelinePos + (Universe.touchxstart - Universe.touchxcurrent);
+
+			if (World.timelinePos < 0) {
+				World.timelinePos = 0;
+			}
+			if (World.timelinePos > World.$self.outerHeight()) {
+				World.timelinePos = World.$self.outerHeigh();
+			}
+		}
+
+		return World.timelinePos
+	}
+
 };
 
 var Blog = {};
