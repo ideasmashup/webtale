@@ -552,3 +552,10 @@ $(document).ready(function() {
 		});
 	});
 
+	$('#site-post > .button').click(function(e) {
+		Universe.unlockScroll();
+		Universe.moveViewport($('#site-world'), 2000, function(){
+			// do something when going back to world?
+		});
+	});
+});
