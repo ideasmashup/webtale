@@ -544,6 +544,12 @@ $(document).ready(function() {
 		})
 	});
 
+	$('#site-world .landing .button.up').click(function(e) {
+		Universe.lockScroll();
+		Universe.moveViewport($('#site-subscribe'), 2000, function(){
+			// do something when going back to subscribe?
+		});
+	});
 
 	$('#site-world article > .button').click(function(e) {
 		Universe.lockScroll();
