@@ -545,4 +545,10 @@ $(document).ready(function() {
 	});
 
 
+	$('#site-world article > .button').click(function(e) {
+		Universe.lockScroll();
+		Universe.moveViewport($('#site-post'), 2000, function(){
+			// do something on post reveal? load it maybe...
+		});
+	});
 
