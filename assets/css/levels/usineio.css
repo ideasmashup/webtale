@@ -9,11 +9,13 @@
 /*
 	Stage
 */
-
+.layer.stage .level.usineio {
+ background: #c0c2c6;
+}
 /*
 	Floor
 */
-.level.usineio .sector .ground {
+.layer.floor .level.usineio .sector .ground {
  background: #a49c8e;
 }
 /*
@@ -23,3 +25,48 @@
 /*
 	Sky
 */
+.layer.sky .level.usineio {
+ background: url(../images/wholepicture.png);*/
+}
+/*
+	Sprites and decorations
+*/
+
+.layer.stage .level.usineio .soldering {
+ position: absolute;
+ width: 144px;
+ height: 144px;
+ margin-top: -195px;
+ left: 0;
+ top: 100%;
+ background: url(../images/world/levels/usineio/soldering.gif);
+}
+.layer.back .level.usineio .logo.usineio {
+ background: url(../images/world/levels/usineio/usineio.png) no-repeat;
+ width:388px;
+ height:66px;
+}
+.layer.back .level.usineio .shelves {
+ position:absolute;
+ background: url(../images/world/levels/usineio/shelves_body.png) repeat-x;
+ width:100%;
+ height:213px;
+}
+.layer.back .level.usineio .shelves:before {
+ position:absolute;
+ content: '';
+ left:0;
+ top:0;
+ background:url(../images/world/levels/usineio/shelves_left.png) no-repeat;
+ width:24px;
+ height:213px;
+}
+.layer.back .level.usineio .shelves:after {
+ position:absolute;
+ content: '';
+ left:100%;
+ top:0;
+ background:url(../images/world/levels/usineio/shelves_right.png) no-repeat;
+ width:24px;
+ height:213px;
+}
