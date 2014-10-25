@@ -138,42 +138,57 @@ var World = {
 	initLayers: function() {
 		this.$layers.each(function(index) {
 			var $layer = $(this);
-			var $level = $layer.find('.level'); // only one level for now, more to be added later
+			var $levels = $layer.find('.level');
+
+			// resize all this layer's levels depedning on their inner sectors
+			var width = 0, height = 0;
+
+			$levels.each(function(index) {
+				var $level = $(this);
+
+				// adjust width to fit all sectors
+				if ($level.hasClass('horizontal')) {
+					var length = 0;
+					var $sectors = $level.find('.sector');
+
+					$sectors.each(function(pos) {
+						var $sector = $(this);
+						length += $sector.outerWidth();
+					});
+
+					$level.width(length + 'px');
+					width += length;
+				}
+				else if ($level.hasClass('vertical')) {
+					var length = 0;
+					var $sectors = $level.find('.sector');
+
+					$sectors.each(function(pos) {
+						var $sector = $(this);
+						length += $sector.outerHeight();
+					});
+
+					$level.height(length + 'px');
+					height += length;
+				}
+
+				// all levels must be at least as high as viewport
+				var vsize = getViewportSize();
+				$level.css({
+					'min-height' : vsize.height + 'px',
+					'height' : vsize.height + 'px'
+				});
+			});
+
+			// resize layer to fit all its content
+			$layer.css({
+				'width' :  width + 'px',
+				'height' :  height + 'px',
+			});
 
 			// set layers speed for parallax, adjust world size
 			var lspeed = ($layer.outerWidth() - World.$self.outerWidth()) / (World.$layers.last().outerWidth() - World.$self.outerWidth())
 			$layer.data('lspeed', lspeed);
-
-			// adjust width to fit all sectors
-			if ($level.hasClass('horizontal')) {
-				var length = 0;
-				var $sectors = $level.find('.sector');
-
-				$sectors.each(function(pos) {
-					var $sector = $(this);
-					length += $sector.outerWidth();
-				});
-
-				$level.width(length + 'px');
-			}
-			else if ($level.hasClass('vertical')) {
-				var length = 0;
-				var $sectors = $level.find('.sector');
-
-				$sectors.each(function(pos) {
-					var $sector = $(this);
-					length += $sector.outerHeight();
-				});
-
-				$level.height(length + 'px');
-			}
-
-			// all levels must be at least as high as viewport
-			var vsize = getViewportSize();
-			$level.css({
-				'min-height' : vsize.height + 'px',
-				'height' : vsize.height + 'px'
-			});
 		});
 	},
 
