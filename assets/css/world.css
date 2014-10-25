@@ -1,5 +1,23 @@
 /*
+	Global rules of the World
 */
+/*
+	Layers Z-indexes
+*/
+.layer.fore{
+ z-index: 9000; /* the top-most stuff is over 9000! oh yeah! */
+}
+.layer.stage{
+ z-index: 8000;
+}
+.layer.floor{
+ z-index: 7000;
+}
+.layer.back{
+ z-index: 6000;
+}
+.layer.sky{
+ z-index: 1000;
 }
 /*
 */
