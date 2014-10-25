@@ -1,0 +1,187 @@
+/*
+	Interactive world
+*/
+#site-world {
+ overflow: hidden; /* world  */
+}
+/*
+	World layer: stage
+*/
+#site-world .layer{
+ overflow: visible;
+ position: absolute;
+ height: 100%;
+ _width: 999em;
+ z-index: 100;
+}
+#site-world .level{
+ height: 400px;
+}
+#site-world .sector{
+ position: relative;
+ display: block;
+ float:left;
+ height: 100%;
+ padding:0;
+ margin:0;
+}
+#site-world .level .sector.tiny {
+ width: 80px;
+}
+#site-world .level .sector.small {
+ width: 200px;
+}
+#site-world .level .sector.normal {
+ width: 300px;
+}
+#site-world .level .sector.wide {
+ width: 400px;
+}
+#site-world .level .sector.large {
+ width: 600px;
+}
+#site-world .level .sector.lower {
+ height: 99%;
+}
+#site-world .level .sector.low {
+ height: 90%;
+}
+#site-world .level .sector.med {
+ height: 80%;
+}
+#site-world .level .sector.high {
+ height: 70%;
+}
+#site-world .level .sector.highest {
+ height: 60%;
+}
+/*
+	Layer : floor
+*/
+#site-world .layer.floor {
+ top:0;
+ z-index:9999;
+ overflow: visible;
+}
+#site-world .layer.floor .level,
+#site-world .layer.floor .sector {
+ position: relative;
+ float: left;
+}
+#site-world .layer .sector .ground {
+ position: absolute;
+ clear: both;
+ top: 100%;
+ width: 100%;
+ height: 51px !important;
+ border: 0;
+ padding: 0;
+ margin-top: -51px;
+ background: #a49c8e;
+}
+
+#site-world .layer .level.usineio .sector .ground {
+ background: #a49c8e;
+}
+
+#site-world .layer.floor > .level.usineio {
+ z-index:999;
+}
+/*
+	World layer: stage
+*/
+#site-world .layer.stage {
+ top: 0;
+ z-index: 200;
+ overflow: visible;
+ /*
+-webkit-box-shadow:inset 0 100px 100px 100px #D9D9D9;
+ box-shadow:inset 0 100px 100px 100px #D9D9D9;
+ */
+}
+#site-world .layer.stage .landing .button.up {
+ position: absolute;
+ width: 30px;
+ height: 30px;
+ padding: 5px;
+ left: 30%;
+ top: 10%;
+}
+#site-world .layer.stage .landing .panel {
+ position: absolute;
+ width: 40px;
+ height: 20px;
+ background: #222;
+ color: #fff;
+ opacity: 0.5;
+ padding: 2px 7px;
+}
+#site-world .layer.stage .landing .panel.old {
+ top: 70%;
+ left: 10%;
+}
+#site-world .layer.stage .landing .panel.new {
+ top: 70%;
+ left: 80%;
+ margin-left: -40px;
+}
+#site-world .layer.stage .soldering {
+ position: absolute;
+ width: 144px;
+ height: 144px;
+ margin-top: -195px;
+ left: 0;
+ top: 100%;
+ background: url(../images/sprites/soldering.gif);
+}
+/*
+	World layer : back
+*/
+#site-world .layer.back .logo.usineio {
+ background: url(../images/sprites/usineio.png) no-repeat;
+ width:388px;
+ height:66px;
+}
+#site-world .layer.back .shelves {
+ position:absolute;
+ background: url(../images/sprites/shelves_body.png) repeat-x;
+ width:100%;
+ height:213px;
+}
+#site-world .layer.back .shelves:before {
+ position:absolute;
+ content: '';
+ left:0;
+ top:0;
+ background:url(../images/sprites/shelves_left.png) no-repeat;
+ width:24px;
+ height:213px;
+}
+#site-world .layer.back .shelves:after {
+ position:absolute;
+ content: '';
+ left:100%;
+ top:0;
+ background:url(../images/sprites/shelves_right.png) no-repeat;
+ width:24px;
+ height:213px;
+}
+/*
+	World layer: sky
+*/
+#site-world .layer.sky {
+ z-index:1;
+ background: url(../images/wholepicture.png);*/
+}
+/*
+	World layer: actors
+*/
+#site-world .actor {
+ position: absolute;
+ left: 50%;
+ top: 50%;
+ height: 100px;
+ width: 60px;
+ z-index: 4000;
+ background: #1bb8ff;
+}
