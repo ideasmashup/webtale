@@ -9,12 +9,14 @@
 /*
 	Stage
 */
-
+.layer.stage .level.paris {
+ background: #b8e9ff;
+}
 /*
 	Floor
 */
-.level.usineio .sector .ground {
- background: #a49c8e;
+.layer.floor .level.usineio .sector .ground {
+ background: #3d3d3d;
 }
 /*
 	Background
