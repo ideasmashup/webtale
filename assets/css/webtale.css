@@ -262,3 +262,9 @@ body{
  min-height: 800px;
  margin: 0 auto;
 }
+/*
+	Interactive world
+*/
+#site-world {
+ overflow: hidden; /* world  */
+}

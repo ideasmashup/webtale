@@ -1,11 +1,7 @@
 /*
-	Interactive world
 */
-#site-world {
- overflow: hidden; /* world  */
 }
 /*
-	World layer: stage
 */
 #site-world .layer{
  overflow: visible;
