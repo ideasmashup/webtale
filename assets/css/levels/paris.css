@@ -19,7 +19,7 @@
 	Floor
 */
 .layer.floor .level.paris .sector {
- background: #b8e9ff; /* walls */
+ /* disabled because no walls here... */
 }
 .layer.floor .level.paris .sector .ground {
  background: #3d3d3d; /* ground */
