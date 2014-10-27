@@ -60,29 +60,29 @@
 	<div id="site-world" class="system" data-ux="1" data-uy="2">
 		<div class="layer stage" data-lspeed="0.7">
 			<div class="level horizontal usineio">
-				<div class="sector wide">
+				<div class="idle sector wide">
 					<div class="soldering"></div>
 					<div class="ultimakers"></div>
 				</div>
-				<div class="sector normal landing">
-					<!-- the "landing" sector -->
+				<div class="idle sector normal landing">
+					<!-- the "landing" idle sector -->
 					<div class="panel old">old</div>
 					<div class="button up">up</div>
 					<div class="panel new">new</div>
 					
 				</div>
-				<div class="sector wide">
+				<div class="idle sector wide">
 					<div class="logo usineio"></div>
 					<div class="shelves"></div>
 					<div class="extincteur"></div>
 				</div>
-				<div class="sector normal">
+				<div class="idle sector normal">
 					<div class="tourmetal"></div>
 				</div>
-				<div class="sector small">
+				<div class="idle sector small">
 				</div>
 				<!--
-				<div class="sector normal post">
+				<div class="idle sector normal post">
 					<article>
 						<div class="date">14 juillet 2014</div>
 						<h1>Arduino is cool</h1>
@@ -97,10 +97,11 @@
 				  -->
 			</div>
 			<div class="level horizontal paris">
-				<div class="sector wide">
-					<!--  -->
+				<div class="idle sector wide">
 				</div>
-				<div class="sector tiny">
+				<div class="idle sector large">
+				</div>
+				<div class="idle sector small">
 					<!--  -->
 				</div>
 			</div>
@@ -108,27 +109,33 @@
 
 		<div class="layer floor" data-lspeed="0.7">
 			<div class="level horizontal usineio">
-				<div class="sector wide">
+				<div class="idle sector wide">
 					<div class="ground"></div>
 				</div>
-				<div class="sector normal">
+				<div class="idle sector normal">
 					<div class="ground"></div>
 				</div>
-				<div class="sector wide">
+				<div class="idle sector wide">
 					<div class="ground"></div>
 				</div>
-				<div class="sector normal">
+				<div class="idle sector normal">
 					<div class="ground"></div>
 				</div>
-				<div class="sector small junction">
+				<div class="idle sector small junction">
 					<div class="ground"></div>
 				</div>
 			</div>
 			<div class="level horizontal paris">
-				<div class="sector wide">
+				<div class="idle sector wide">
+					<!--  special case for Paris level, there are wuper wide elements spanning across idle sectors -->
+					<div class="metro"></div>
+					<div class="pont level-wide"></div>
 					<div class="ground"></div>
 				</div>
-				<div class="sector tiny">
+				<div class="idle sector large">
+					<div class="ground"></div>
+				</div>
+				<div class="idle sector small">
 					<!--  -->
 				</div>
 			</div>
@@ -136,23 +143,26 @@
 		
 		<div class="layer fore" data-lspeed="0.6">
 			<div class="level horizontal usineio">
-				<div class="sector wide">
+				<div class="idle sector wide">
 				</div>
-				<div class="sector normal">
+				<div class="idle sector normal">
 				</div>
-				<div class="sector wide">
+				<div class="idle sector wide">
 					<div class="frontdesk"></div>
 				</div>
-				<div class="sector normal">
+				<div class="idle sector normal">
 				</div>
-				<div class="sector small">
+				<div class="idle sector small">
 				</div>
 			</div>
 			<div class="level horizontal paris">
-				<div class="sector wide">
+				<div class="idle sector wide">
 					<!--  -->
 				</div>
-				<div class="sector tiny">
+				<div class="idle sector large">
+					<div class="poste"></div>
+				</div>
+				<div class="idle sector small">
 					<!--  -->
 				</div>
 			</div>
@@ -160,47 +170,96 @@
 
 		<div class="layer back" data-lspeed="0.5">
 			<div class="level horizontal usineio">
-				<div class="sector wide">
+				<div class="idle sector wide">
 				</div>
-				<div class="sector normal">
+				<div class="idle sector normal">
 				</div>
-				<div class="sector wide">
+				<div class="idle sector wide">
 				</div>
-				<div class="sector normal">
+				<div class="idle sector normal">
 				</div>
-				<div class="sector small">
+				<div class="idle sector small">
 				</div>
 			</div>
 			<div class="level horizontal paris">
-				<div class="sector wide">
-					<!--  -->
+				<div class="idle sector wide">
+					<div class="adiloualim"></div>
+					<div class="hotel"></div>
 				</div>
-				<div class="sector tiny">
-					<!--  -->
+				<div class="idle sector large">
+				</div>
+				<div class="idle sector small">
+					<div class="andiamo"></div>
+				</div>
+				<div class="idle sector normal">
+					<div class="crocodile"></div>
 				</div>
 			</div>
 		</div>
 
 		<div class="layer sky" data-lspeed="0.4">
 			<div class="level horizontal usineio">
-				<div class="sector wide">
+				<div class="idle sector wide">
 					<!--  -->
 				</div>
-				<div class="sector normal">
+				<div class="idle sector normal">
 					<!--  -->
 				</div>
-				<div class="sector wide">
+				<div class="idle sector wide">
 				</div>
-				<div class="sector normal">
+				<div class="idle sector normal">
 				</div>
-				<div class="sector small">
+				<div class="idle sector small">
 				</div>
 			</div>
 			<div class="level horizontal paris">
-				<div class="sector wide">
-					<!--  -->
+				<div class="idle sector wide">
+					<div class="landscape level-wide">
+						<div class="building wide med"></div>
+						<div class="building wide low"></div>
+						<div class="building tiny high"></div>
+						<div class="building wide higher"></div>
+						<div class="building wide med"></div>
+						<div class="building wide highest"></div>
+						<div class="building wide lower"></div>
+						<div class="building wide med"></div>
+						<div class="building wide lowest"></div>
+						<div class="building wide high"></div>
+						<div class="building wide med"></div>
+						<div class="building wide low"></div>
+						<div class="building tiny high"></div>
+						<div class="building wide higher"></div>
+						<div class="building wide med"></div>
+						<div class="building wide highest"></div>
+						<div class="building wide lower"></div>
+						<div class="building wide med"></div>
+						<div class="building wide lowest"></div>
+						<div class="building wide high"></div>
+						<div class="building wide med"></div>
+						<div class="building wide low"></div>
+						<div class="building tiny high"></div>
+						<div class="building wide higher"></div>
+						<div class="building wide med"></div>
+						<div class="building wide highest"></div>
+						<div class="building wide lower"></div>
+						<div class="building wide med"></div>
+						<div class="building wide lowest"></div>
+						<div class="building wide high"></div>
+						<div class="building wide med"></div>
+						<div class="building wide low"></div>
+						<div class="building tiny high"></div>
+						<div class="building wide higher"></div>
+						<div class="building wide med"></div>
+						<div class="building wide highest"></div>
+						<div class="building wide lower"></div>
+						<div class="building wide med"></div>
+						<div class="building wide lowest"></div>
+						<div class="building wide high"></div>
+					</div>
 				</div>
-				<div class="sector tiny">
+				<div class="idle sector large">
+				</div>
+				<div class="idle sector tiny">
 					<!--  -->
 				</div>
 			</div>
