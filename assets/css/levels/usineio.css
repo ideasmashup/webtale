@@ -19,7 +19,7 @@
 	Floor
 */
 .layer.floor .level.usineio .sector {
- background: #c0c2c6; /* walls */
+ background: #cccdce;/*c0c2c6; /* walls */
 }
 .layer.floor .level.usineio .sector .ground {
  background: #a49c8e; /* ground */
@@ -33,8 +33,8 @@
  left:100%;
  border-bottom:300px solid transparent;
  border-right:50px solid transparent;
- border-left:50px solid #c0c2c6;
- border-top:300px solid #c0c2c6;
+ border-left:50px solid #cccdce;/*c0c2c6;*/
+ border-top:300px solid #cccdce; /*c0c2c6;*/
  
 }
 .layer.floor .level.usineio .sector.junction .ground:after {
@@ -83,21 +83,21 @@
 }
 .layer.stage .level.usineio .soldering {
  position: absolute;
- width: 144px;
- height: 144px;
- margin-top: -155px;
+ width: 160px;
+ height: 160px;
+ margin-top: -175px;
  left: 0;
  top: 100%;
- background: url(../../images/world/levels/usineio/soldering.gif);
+ background: url(../../images/world/levels/usineio/bonhomme.gif);
 }
 .layer.stage .level.usineio .ultimakers {
  position: absolute;
- width: 169px;
- height: 127px;
- margin-top: -166px;
- left: 160px;
+ width: 191px;
+ height: 141px;
+ margin-top: -190px;
+ right: 0px;
  top: 100%;
- background: url(../../images/world/levels/usineio/ultimakers.png);
+ background: url(../../images/world/levels/usineio/printer.png);
 }
 .layer.stage .level.usineio .tourmetal {
  position: absolute;
@@ -112,7 +112,7 @@
  position:absolute;
  top: 100%;
  margin-top: -355px;
- background: url(../../images/world/levels/usineio/usineio.png) center 0 no-repeat;
+ background: url(../../images/world/levels/usineio/usine_logo.png) center 0 no-repeat;
  width:100%;
  height:66px;
 }
