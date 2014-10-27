@@ -551,7 +551,16 @@ $(document).ready(function() {
 			setTimeout(function(){
 				Universe.moveViewport($('#site-world'), 500, function(){
 					//
-					sfx($('#site-world > .actor'), 'fadeInDownBig');
+					//var $sector = $('.sector');
+					//sfx($sector, 'fadeInDownBig');/*
+					$('.sector').each(function(index) {
+						var $sector = $(this);
+						setTimeout(function(){
+							sfx($sector, 'fadeInDownBig');
+						}, index * 50);
+					});//*/
+
+					//sfx($('#site-world > .actor'), 'fadeInDownBig');
 
 					// activate scroll timeline
 					World.initLayers();
