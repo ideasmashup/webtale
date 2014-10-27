@@ -82,8 +82,8 @@
  top:0;
  overflow: visible;
 }
-#site-world .layer.floor .level,
-#site-world .layer.floor .sector {
+#site-world .layer .level,
+#site-world .layer .sector {
  position: relative;
  float: left;
 }
