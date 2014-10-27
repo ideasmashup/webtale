@@ -28,6 +28,9 @@
 /*
 	Sectors and layers global rules
 */
+#site-world{
+ background: #fff;
+}
 #site-world .layer{
  overflow: visible;
  position: absolute;
@@ -115,4 +118,7 @@
  padding: 5px;
  left: 30%;
  top: 10%;
+}
+#site-world .layer.sky {
+ background: #b8e9ff;
 }
