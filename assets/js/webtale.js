@@ -187,8 +187,8 @@ var World = {
 			});
 
 			// set layers speed for parallax, adjust world size
-			var lspeed = ($layer.outerWidth() - World.$self.outerWidth()) / (World.$layers.last().outerWidth() - World.$self.outerWidth())
-			$layer.data('lspeed', lspeed);
+//			var lspeed = ($layer.outerWidth() - World.$self.outerWidth()) / (World.$layers.last().outerWidth() - World.$self.outerWidth())
+//			$layer.data('lspeed', lspeed);
 		});
 	},
 
