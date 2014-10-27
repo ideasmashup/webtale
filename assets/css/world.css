@@ -7,20 +7,26 @@
 .layer{
  z-index: 2000;
 }
-.layer.fore{
+.layer.posts{
  z-index: 9000; /* the top-most stuff is over 9000! oh yeah! */
 }
-.layer.stage{
+.layer.fore{
  z-index: 8000;
 }
-.layer.floor{
+.layer.stage{
  z-index: 7000;
 }
+.layer.floor{
+ z-index: 6000;
+}
 .layer.floor .ground{
- z-index: 7999;
+ z-index: 6999;
 }
 .layer.back{
- z-index: 6000;
+ z-index: 5000;
+}
+.layer.back2{
+ z-index: 4000;
 }
 .layer.sky{
  z-index: 1000;
