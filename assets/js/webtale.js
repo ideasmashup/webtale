@@ -1,3 +1,7 @@
+function isMac() {
+	return (navigator.userAgent.indexOf('Mac OS X') != -1)
+}
+
 /*
 	Page elements
  */
@@ -221,7 +225,15 @@ var World = {
 
 		//alert('timeline size = '+ length)
 
-		$('#timeline').css('height', length);
+		if (isMac()) {
+			// horizontal scroll on Mac
+			$('#timeline').css('width', length);
+			$('#timeline').css('height', length);
+		}
+		else {
+			// vertical scroll on PC
+			$('#timeline').css('height', length);
+		}
 	},
 
 	getTimelinePos: function() {
@@ -230,7 +242,13 @@ var World = {
 
 		if (deviceName == "computer") {
 			// desktop
-			World.timelinePos = $(window).scrollTop();
+			if (isMac()) {
+				// swipe horizontally
+				World.timelinePos = $(window).scrollLeft();
+			}
+			else {
+				World.timelinePos = $(window).scrollTop();
+			}
 		}
 		else {
 			// mobile
