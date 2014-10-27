@@ -157,6 +157,7 @@ var World = {
 					});
 
 					$level.width(length + 'px');
+					$level.find('.level-wide').width(length + 'px'); // also adjust level-wide elements
 					width += length;
 				}
 				else if ($level.hasClass('vertical')) {
@@ -169,6 +170,7 @@ var World = {
 					});
 
 					$level.height(length + 'px');
+					$level.find('.level-wide').height(length + 'px'); // also adjust level-wide elements
 					height += length;
 				}
 
