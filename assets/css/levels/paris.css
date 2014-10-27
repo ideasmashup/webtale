@@ -118,3 +118,22 @@
  border:1px solid transparent;
  z-index:9999;
 }
+.layer .level.paris .immeuble0 {
+ position: absolute;
+ width: 516px;
+ height: 296px;
+ margin-top: -346px;
+ margin-left: 0px;
+ left: 30px;
+ top: 100%;
+ background: url(../../images/world/levels/paris/immeuble0.png);
+}
+.layer .level.paris .immeuble1 {
+ position: absolute;
+ width: 157px;
+ height: 150px;
+ margin-top: -208px;
+ margin-left: 0px;
+ top: 100%;
+ background: url(../../images/world/levels/paris/immeuble1.png);
+}
