@@ -31,3 +31,90 @@
 /*
 	Sky
 */
+.layer.sky .level.paris {
+ background: #7eb8d9; /* walls */
+}
+/*
+	Sprites and decorations
+*/
+.level.paris .pont {
+ position: absolute;
+ height: 85px;
+ margin-top: -136px;
+ left: 0px;
+ top: 100%;
+ background: url(../../images/world/levels/paris/pont.png) repeat-x;
+}
+.level.paris .metro {
+ position: absolute;
+ width: 747px;
+ height: 53px;
+ margin-top: -156px;
+ left: 100px;
+ top: 100%;
+ background: url(../../images/world/levels/paris/metro.png) repeat-x;
+}
+.layer.back .level.paris .adiloualim {
+ position: absolute;
+ width: 293px;
+ height: 232px;
+ margin-top: -270px;
+ margin-left: 90px;
+ left: 0px;
+ top: 100%;
+ background: url(../../images/world/levels/paris/adiloualim.png);
+}
+.layer.back .level.paris .hotel {
+ position: absolute;
+ width: 335px;
+ height: 246px;
+ margin-top: -284px;
+ margin-left: -7px;
+ left: 30px;
+ top: 100%;
+ background: url(../../images/world/levels/paris/hotel.png);
+}
+.layer.fore .level.paris .poste {
+ position: absolute;
+ width: 49px;
+ height: 110px;
+ margin-top: -110px;
+ left: 4px;
+ top: 100%;
+ background: url(../../images/world/levels/paris/poste.png);
+}
+.layer.back .level.paris .andiamo {
+ position: absolute;
+ width: 190px;
+ height: 186px;
+ margin-top: -231px;
+ margin-left: 0px;
+ left: 30px;
+ top: 100%;
+ background: url(../../images/world/levels/paris/andiamo.png);
+}
+.layer.back .level.paris .crocodile {
+ position: absolute;
+ width: 284px;
+ height: 311px;
+ margin-top: -360px;
+ margin-left: -11px;
+ left: 0px;
+ top: 100%;
+ background: url(../../images/world/levels/paris/crocodile.png);
+}
+.layer .level.paris .landscape {
+ position: absolute;
+ height: 100%;
+ margin-left:-600px;
+}
+.layer .level.paris .landscape .building {
+ display:block;
+ position: relative;
+ background-color: #b8e9ff;
+ width: 80px;
+ float: left;
+ bottom: 0;
+ border:1px solid transparent;
+ z-index:9999;
+}
