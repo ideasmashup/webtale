@@ -115,15 +115,20 @@ var World = {
 	groundLastPos: 0,
 	groundLastMove: 0,
 
+	autoAnimInterval: -1,
+
 	$self : null,
 	$layers : null,
 	$stage : null,
 	$actor : null,
+	$runners : null,
 	$sectors : null,
 	$currentlevel : null,
 	currentsector : 0,
 
 	init : function() {
+		this.autoAnimInterval = -1;
+
 		this.timelinePos = 0;
 		this.timelineLastPos = 0;
 		this.timelineLastMove = 0;
@@ -132,6 +137,7 @@ var World = {
 		this.$layers = $('#site-world .layer');
 		this.$actor = $('#site-world .actor');
 		this.$stage = $('#site-world .stage');
+		this.$runners = $('#site-world .runner')
 		this.$sectors = $('#site-world .stage .sector');
 		this.$currentlevel = $('#site-world .stage .level').eq(0);
 		this.currentsector = 0;
@@ -195,6 +201,10 @@ var World = {
 			// set layers speed for parallax, adjust world size
 //			var lspeed = ($layer.outerWidth() - World.$self.outerWidth()) / (World.$layers.last().outerWidth() - World.$self.outerWidth())
 //			$layer.data('lspeed', lspeed);
+
+			// enable animations
+			clearInterval(this.autoAnimLoop);
+			setInterval(animateOnTick, 200);
 		});
 	},
 
@@ -449,6 +459,26 @@ function leaveSector($sector, actorPos) {
 	$sector.css({'background-color' : 'transparent'});
 }
 
+function num(pixels) {
+	return pixels.substring(0, pixels.length - 2) * 1;
+}
+
+var ticks = 0;
+function moveRunners() {
+	ticks++;
+
+	World.$runners.each(function() {
+		var $runner = $(this);
+		if (ticks >= 600) {
+			ticks = 0;
+			$runner.css({'left' : '-' + $runner.outerWidth() + 'px'})
+		}
+		else {
+			$runner.css({'left' : '+=' + $runner.data('speed')})
+		}
+	});
+}
+
 function paralaxScroll() {
 	if (World.$currentlevel.hasClass('horizontal')) {
 		// move layers horizontaly with parallax effect
@@ -510,6 +540,11 @@ function paralaxScroll() {
 function animateOnScroll() {
 	//
 	paralaxScroll();
+}
+
+function animateOnTick() {
+	//
+	moveRunners();
 }
 
 
