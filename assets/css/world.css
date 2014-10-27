@@ -50,18 +50,23 @@
 }
 #site-world .level .sector.tiny {
  width: 80px;
+ min-width: 80px;
 }
 #site-world .level .sector.small {
  width: 200px;
+ min-width: 200px;
 }
 #site-world .level .sector.normal {
  width: 300px;
+ min-width: 300px;
 }
 #site-world .level .sector.wide {
  width: 400px;
+ min-width: 400px;
 }
 #site-world .level .sector.large {
  width: 600px;
+ min-width: 600px;
 }
 #site-world .level .lowest {
  height: 90%;
