@@ -391,12 +391,14 @@ function preloadEverything() {
 			preload = 100;
 			clearInterval(preloadSI);
 
-			Universe.moveViewport($('#site-subscribe'), 1000, function(){
-				// done loading
+//			Universe.moveViewport($('#site-subscribe'), /*100*/0, function(){
+//				// done loading
+//
+//				// animate scene
+//				sfx($('#site-subscribe > *'), 'bounceInRight');
+//			});
 
-				// animate scene
-				sfx($('#site-subscribe > *'), 'bounceInRight');
-			});
+			$('#btViewSite').click();
 		}
 		$('#percent').text(preload)
 	}, 100);
@@ -607,15 +609,15 @@ $(document).ready(function() {
 	});
 
 	$('#btViewSite').click(function(){
-		Universe.moveViewport($('#site-wait'), 1000, function(){
-			// display hints how to use the world...
-
-			// animate scene
-			sfx($('#site-wait > *').filter(':not(.actor)'), 'bounceInUp');
-			sfx($('#site-wait > .actor'), 'fadeInDownBig');
-
-			// auto switch to world after small 4s delay
-			setTimeout(function(){
+//		Universe.moveViewport($('#site-wait'), 10/*00*/, function(){
+//			// display hints how to use the world...
+//
+//			// animate scene
+//			sfx($('#site-wait > *').filter(':not(.actor)'), 'bounceInUp');
+//			sfx($('#site-wait > .actor'), 'fadeInDownBig');
+//
+//			// auto switch to world after small 4s delay
+//			setTimeout(function(){
 				Universe.moveViewport($('#site-world'), 500, function(){
 					//
 					//var $sector = $('.sector');
@@ -632,9 +634,12 @@ $(document).ready(function() {
 					// activate scroll timeline
 					World.initLayers();
 					Universe.unlockScroll();
+
+					// activate animation loop
+
 				});
-			}, 4000);
-		})
+//			}, 2000);
+//		})
 	});
 
 	$('#site-world .landing .button.up').click(function(e) {
