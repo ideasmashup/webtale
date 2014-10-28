@@ -480,7 +480,11 @@ function moveRunners() {
 
 	World.$runners.each(function() {
 		var $runner = $(this);
-		if (ticks >= 600) {
+		var $bounds = $($runner.data('bounds'));
+		var x = $runner.css('left'), x = x.substr(0, x.length-2) * 1;
+		var max = $bounds.outerWidth();
+
+		if (x > max - $runner.outerWidth()) {
 			ticks = 0;
 			$runner.css({'left' : '-' + $runner.outerWidth() + 'px'})
 		}
