@@ -128,6 +128,7 @@ var World = {
 	$actor : null,
 	$runners : null,
 	$sectors : null,
+	$posts : null,
 	$currentlevel : null,
 	currentsector : 0,
 
@@ -144,6 +145,7 @@ var World = {
 		this.$stage = $('#site-world .stage');
 		this.$runners = $('#site-world .runner')
 		this.$sectors = $('#site-world .stage .sector');
+		this.$posts = $('#site-world .posts .level');
 		this.$currentlevel = $('#site-world .stage .level').eq(0);
 		this.currentsector = 0;
 
@@ -221,7 +223,7 @@ var World = {
 		var length = 0;
 
 		if (Universe.canScroll) {
-			World.$sectors.each(function(index) {
+			World.$posts.each(function(index) {
 				var $level = $(this);
 
 				if ($level.hasClass('horizontal')) {
@@ -236,7 +238,7 @@ var World = {
 			});
 
 			// FIXME dirty hack to make debug work
-			length = 8888;
+			//length = 8888;
 		}
 		else {
 			// reduce to zero to prevent scrolling
