@@ -32,7 +32,7 @@
 	Sky
 */
 .layer.sky .level.paris {
- background: #7eb8d9; /* walls */
+ background: #b8e9ff;/*#7eb8d9; /* walls */
 }
 /*
 	Sprites and decorations
@@ -47,12 +47,12 @@
 }
 .level.paris .metro {
  position: absolute;
- width: 747px;
- height: 53px;
- margin-top: -156px;
+ width: 832px;
+ height: 59px;
+ margin-top: -159px;
  left: 100px;
  top: 100%;
- background: url(../../images/world/levels/paris/metro.png) repeat-x;
+ background: url(../../images/world/levels/paris/metro3.png) repeat-x;
 }
 .layer .level.paris .adiloualim {
  position: absolute;
@@ -106,7 +106,7 @@
 .layer .level.paris .landscape {
  position: absolute;
  height: 100%;
- margin-left:-600px;
+ margin-left: -500px;
 }
 .layer .level.paris .landscape .building {
  display:block;
