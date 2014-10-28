@@ -85,6 +85,10 @@ var Universe = {
 			$system = Universe.$currentsystem;
 		}
 
+		if (duration == undefined) {
+			duration = 0;
+		}
+
 		this._moveViewportTo(-$system.position().left, -$system.position().top, duration, function() {
 			// done moving to target system
 			Universe.$currentsystem = $system;
