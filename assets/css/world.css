@@ -149,3 +149,48 @@
 #site-world .layer.sky {
  background: #b8e9ff;
 }
+/*
+	Posts
+*/
+#site-world .post {
+ background: rgba(255,255,255,0.9);
+ padding:15px;
+ font-family: 'Nunito', sans-serif;
+ font-size: 14px;
+ font-weight: light;
+ margin-top: 25%;
+}
+#site-world .post h1{
+ font-size: 18px;
+ margin-top: 0;
+}
+#site-world .post p{
+ font-size: 13px;
+ font-weight: 100;
+}
+#site-world .post .icon{
+ display: inline-block;
+ position: relative;
+ width: 14px;
+ height: 14px;
+}
+#site-world .post .icon.views{
+ background: url(../images/world/posts/eye.png) no-repeat center center;
+}
+#site-world .post .icon.comments{
+ background: url(../images/world/posts/comment.png) no-repeat center center;
+}
+#site-world .post .footer {
+ width: 100%;
+ margin:0 -15px -15px -15px;
+ padding:15px;
+}
+#site-world .post .footer > *{
+ font-size: 14px;
+ color: #888;
+ overflow:hidden;
+ display:inline-block;
+ position:relative;
+ margin-right:12px;
+}
+
