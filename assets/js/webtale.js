@@ -495,7 +495,7 @@ function paralaxScroll() {
 		// move layers horizontaly with parallax effect
 		World.$layers.each(function(index, element, list) {
 			var $layer = $(element);
-			var lpos = (1 * $layer.data('lspeed') * World.getTimelinePos());
+			var lpos = Math.round(-1 * $layer.data('lspeed') * World.getTimelinePos());
 
 			//console.log('lspeed='+ $layer.data('lspeed') +', tpos='+ World.getTimelinePos() +', lpos='+ lpos)
 			$layer.css({
