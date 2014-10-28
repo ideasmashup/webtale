@@ -57,11 +57,12 @@ var Universe = {
 		resizeSystems();
 
 		// resize timeline (scrollbar)
+		World.resizeLayers();
 		World.resizeTimeline();
 
 		// move viewport immediately after resize if
 		if (preload == 100) {
-			this.moveViewport(0);
+			this.moveViewport();
 		}
 	},
 
@@ -150,6 +151,14 @@ var World = {
 	},
 
 	initLayers: function() {
+		World.resizeLayers();
+
+		// enable animations
+		clearInterval(this.autoAnimLoop);
+		setInterval(animateOnTick, 100);
+	},
+
+	resizeLayers : function() {
 		this.$layers.each(function(index) {
 			var $layer = $(this);
 			var $levels = $layer.find('.level');
@@ -205,10 +214,6 @@ var World = {
 			// set layers speed for parallax, adjust world size
 //			var lspeed = ($layer.outerWidth() - World.$self.outerWidth()) / (World.$layers.last().outerWidth() - World.$self.outerWidth())
 //			$layer.data('lspeed', lspeed);
-
-			// enable animations
-			clearInterval(this.autoAnimLoop);
-			setInterval(animateOnTick, 200);
 		});
 	},
 
