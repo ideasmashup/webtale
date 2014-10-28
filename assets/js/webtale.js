@@ -589,8 +589,7 @@ $(document).ready(function() {
 	}).on('resize', function() {
 		// resize world, universe and scroll length
 
-		resizeSystems();
-		World.resizeTimeline();
+		Universe.resize();
 		animateOnScroll();
 
 	}).on('orientationchange', function(event) {
