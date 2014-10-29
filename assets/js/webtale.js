@@ -450,7 +450,7 @@ function bindMobileEvents() {
 	document.addEventListener("touchend", function(e) {
 		if (Universe.canScroll) {
 			// only prevent clicks in world system
-			//e.preventDefault();
+			e.preventDefault();
 			Universe.touchxend = e.changedTouches[0].pageX;
 			Universe.touchyend = e.changedTouches[0].pageY;}
 
