@@ -423,7 +423,7 @@ function preloadPosts() {
 	// load posts?
 }
 
-/*
+
 function bindMobileEvents() {
 	document.addEventListener("touchstart", function(e) {
 		// only prevent scrolling in world system
