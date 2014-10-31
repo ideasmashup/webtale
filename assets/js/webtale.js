@@ -667,9 +667,11 @@ $(document).ready(function() {
 			// do something when going back to subscribe?
 		});
 	});
+/*
+	$('#site-world article .button').click(function(e) {
+		//Universe.lockScroll();
+		//var $post = $(this).parents('.post');
 
-	$('#site-world article > .button').click(function(e) {
-		Universe.lockScroll();
 		Universe.moveViewport($('#site-post'), 2000, function(){
 			// do something on post reveal? load it maybe...
 		});
@@ -681,4 +683,8 @@ $(document).ready(function() {
 			// do something when going back to world?
 		});
 	});
+*/
+
+	$('button.overlayer').click(function(){toggleFullPost()});
+	$('.overlay').click(function(){toggleFullPost()});
 });
