@@ -564,6 +564,25 @@ function animateOnTick() {
 	moveRunners();
 }
 
+function toggleFullPost() {
+	var $post = $('#site-overlay');
+	var $world = World.$self;
+
+	if ($post.hasClass('open')) {
+		$post.removeClass('open');
+		//$post.addClass('close');
+		$world.removeClass('overlay-open');
+
+		// after transition end
+		//$post.removeClass('close');
+		Universe.unlockScroll();
+	}
+	else if (! $post.hasClass('close')) {
+		Universe.lockScroll();
+		$post.addClass('open');
+		$world.addClass('overlay-open');
+	}
+}
 
 /*
 	Document initializing
