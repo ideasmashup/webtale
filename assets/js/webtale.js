@@ -102,12 +102,14 @@ var Universe = {
 
 	lockScroll: function() {
 		Universe.canScroll = false;
-		World.resizeTimeline();
+		//World.resizeTimeline();
+		$('body').css('overflow', 'hidden');
 	},
 
 	unlockScroll: function() {
 		Universe.canScroll = true;
 		World.resizeTimeline();
+		$('body').css('overflow', 'auto');
 	}
 };
 
