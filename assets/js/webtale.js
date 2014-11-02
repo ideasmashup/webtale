@@ -631,6 +631,7 @@ function animateOnTick() {
 }
 
 function toggleFullPost() {
+function toggleFullPost(href) {
 	var $post = $('#site-overlay');
 	var $world = World.$self;
 
@@ -642,11 +643,23 @@ function toggleFullPost() {
 		// after transition end
 		//$post.removeClass('close');
 		Universe.unlockScroll();
+
+		$('#contentloader').empty().hide();
 	}
 	else if (! $post.hasClass('close')) {
 		Universe.lockScroll();
 		$post.addClass('open');
 		$world.addClass('overlay-open');
+
+		$('#contentloader').empty().hide();
+		$('.spinner2').show();
+
+		setTimeout(function(){
+			$('#contentloader').load(href, function(resp, status){
+				$('.spinner2').hide();
+				$('#contentloader').show();
+			});
+		}, 3000);
 	}
 }
 
