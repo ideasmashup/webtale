@@ -1,0 +1,26 @@
+<div class="idle sector wide">
+<div class="post">
+{{#if isntFirst}}
+<div class="arrow prev"></div>
+{{/if}}
+<article>
+<h1>{{title_plain}}</h1>
+<div class="content">{{excerpt}}</div>
+<div class="footer">
+{{#if comments}}
+<div class="comments"><i class="icon comments"></i> {{comments.length}} comments</div>
+{{else}}
+<div class="comments"><i class="icon comments"></i> No comments yet</div>
+{{/if}}
+<div class="views"><i class="icon views"></i> 4 views</div>
+<a href="{{url}}" class="button overlayer">Read more</a>
+</div>
+</article>
+{{#if isntLast}}
+<div class="arrow after"></div>
+{{/if}}
+</div>
+</div>
+<div class="idle sector normal">
+<!-- post separator -->
+</div>
