@@ -288,7 +288,71 @@ var World = {
 
 };
 
-var Blog = {};
+var Posts = {
+	tplPost : null,
+	posts : [],
+
+	init : function() {
+		// precompile all templates
+		this.tplPost = Handlebars.templates['post'];
+
+		// FIXME replace later with loading only excerpts
+		this.load_all_posts(function(data, status) {
+			// generate all posts divs
+			var count = data.posts.length;
+
+			$.each(data.posts, function(index, post){
+				Posts.appendPost(index, post, count);
+			});
+		});
+	},
+
+	load_all_posts : function(callback) {
+		var count = 100; // load all posts (assuming there are less than 100)
+		var api_url = 'http://codequartz.com/site/blog/?json=get_posts&count='+ count;
+
+		$.getJSON(api_url, function(data, status) {
+			// successful loading
+			Posts.posts = data;
+
+			if (callback && callback instanceof Function) {
+				callback(data, status);
+			}
+
+			console.log('Posts loading request completed.');
+		})
+		.fail(function() {
+			// TODO display nice modal with svg animation
+			console.log("Failed to load blog posts !");
+		});
+	},
+
+	appendPost : function(index, post, count) {
+		// add navigation arrows depending on count and index
+		if (index > 0) {
+			// not first display prev arrow
+			post['isntFirst'] = true;
+		}
+		if (index < count - 1) {
+			// not last display next arrow
+			post['isntLast'] = true;
+		}
+
+		console.log(post.toSource())
+
+		var $post = $(this.tplPost(post));
+		$post.insertAfter('#posts-before');
+
+		$('.overlayer').unbind('click').click(function(e){
+			e.preventDefault();
+			toggleFullPost(e.target.href);
+		});
+
+
+		// resize world (?)
+		//Universe.resize();
+	}
+};
 
 var Splash = {}
 
@@ -420,7 +484,7 @@ function preloadWorld() {
 }
 
 function preloadPosts() {
-	// load posts?
+	Posts.init();
 }
 
 
@@ -590,6 +654,7 @@ function toggleFullPost() {
 
 $(document).ready(function() {
 	// cache assets and save page elements refs
+	// also load all posts using ajax/json
 	preloadEverything()
 
 	if (deviceName != "computer") {
