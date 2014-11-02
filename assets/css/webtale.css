@@ -282,7 +282,9 @@ body{
  height: 100%;
  top: 0;
  left: 0;
- background: rgba(100,100,100,0.95); /* A49C8E */
+ padding:0;
+ margin:0;
+ background: rgba(100,100,100,0.95);
 }
 /* Overlay closing cross */
 .overlay .overlay-close {
@@ -373,7 +375,7 @@ body {
 }
 
 .overlay-contentscale {
- padding:5em;
+ padding:5em 0 0 0;
 }
 .overlay-contentscale *{
  max-width:90%;
